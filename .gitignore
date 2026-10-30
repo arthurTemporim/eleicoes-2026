@@ -1,0 +1,17 @@
+*.zip
+*.csv
+
+# Dados baixados (reproduzíveis com scripts/). Os parquets processados são versionados
+# para permitir análises sem baixar nem processar os arquivos de urna.
+dataset/*
+!dataset/.gitkeep
+!dataset/processed/
+dataset/processed/*
+!dataset/processed/*.parquet
+
+.env
+.ipynb_checkpoints/
+__pycache__/
+
+# rtk
+*.rtk
