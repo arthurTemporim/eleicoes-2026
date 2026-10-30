@@ -1,0 +1,14 @@
+services:
+  jupyter:
+    build: .
+    image: eleicoes-2026-jupyter
+    # Roda com o UID/GID do host para que os arquivos gerados em dataset/ não fiquem como root.
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    environment:
+      HOME: /tmp
+      PYTHONPATH: /work/scripts
+      JUPYTER_TOKEN: "${JUPYTER_TOKEN:-}"
+    volumes:
+      - ./:/work
+    ports:
+      - "127.0.0.1:8888:8888"
