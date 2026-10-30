@@ -11,7 +11,7 @@
 
 Análise reprodutível e aberta do **2º turno da eleição presidencial de 25/10/2026**, feita com os dados abertos do TSE. Ela vai além do resultado oficial: a partir do **log** e do **RDV** de cada uma das ~500 mil urnas, mede **a que horas** as pessoas votaram, **quantas votaram sem biometria** e **quais números digitaram ao anular o voto**.
 
-> **Quer só os números?** Veja [Resultados](#resultados).
+> **Quer só os números?** Veja [Resultados](#resultados) ou o [relatório completo, com gráficos](relatorio.md).
 > **Quer analisar?** Os dados já processados estão no repositório: `git clone` e [abra o notebook](#começo-rápido). Não é preciso baixar nada.
 
 ## Sumário
@@ -235,6 +235,14 @@ Os CSVs de resultado não têm a hora dos votos nem a biometria, e agregam todos
 
 Nenhum zip é gravado em disco.
 
+### Relatório em PDF
+
+O [`relatorio.md`](relatorio.md) traz só as análises, com gráficos em Mermaid que o GitHub renderiza. Para gerar o PDF localmente (só requer Docker):
+
+```bash
+scripts/relatorio_pdf.sh        # relatorio.md -> relatorio.pdf (não versionado)
+```
+
 ## Reproduzir do zero
 
 Para conferir os dados versionados ou regerá-los a partir do TSE.
@@ -299,6 +307,9 @@ scripts/
   process_urna.py     log + RDV por seção -> dataset/processed/*.parquet
   tse_io.py           leitura padronizada dos CSVs do TSE
   spec/rdv.asn1       especificação ASN.1 do RDV
+  relatorio_pdf.sh    gera relatorio.pdf a partir de relatorio.md (Docker + mermaid-cli)
+  relatorio_pdf.cjs   conversão Markdown + Mermaid -> PDF (usado pelo .sh)
+relatorio.md          relatório das análises, com gráficos
 notebooks/
   analise_eleicoes_2026.ipynb
 docs/

@@ -15,3 +15,6 @@ __pycache__/
 
 # rtk
 *.rtk
+
+# relatório em PDF (gerado por scripts/relatorio_pdf.sh)
+relatorio.pdf
